@@ -24,4 +24,4 @@ render(tripEventsHeaderElement, createEditEventTemplate(), `afterend`);
 
 const eventListElement = document.querySelector(`.trip-days`);
 
-new Array(EVENT_COUNT).fill(``).forEach(() => render(eventListElement, createDayTemplate(), `beforeend`));
+new Array(EVENT_COUNT).fill(``).forEach((it, index) => render(eventListElement, createDayTemplate(index), `beforeend`));
