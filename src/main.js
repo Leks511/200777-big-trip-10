@@ -2,7 +2,7 @@ import {createSiteMenuTemplate} from './components/site-menu.js';
 import {createInfoTemplate} from './components/info.js';
 import {createFiltersTemplate} from './components/filter.js';
 import {createEditEventTemplate} from './components/event-edit.js';
-import {createEventTemplate} from './components/event.js';
+import {createDayTemplate} from './components/day.js';
 
 const EVENT_COUNT = 3;
 
@@ -24,4 +24,4 @@ render(tripEventsHeaderElement, createEditEventTemplate(), `afterend`);
 
 const eventListElement = document.querySelector(`.trip-days`);
 
-new Array(EVENT_COUNT).fill(``).forEach(() => render(eventListElement, createEventTemplate(), `beforeend`));
+new Array(EVENT_COUNT).fill(``).forEach(() => render(eventListElement, createDayTemplate(), `beforeend`));
