@@ -1,6 +1,6 @@
 import {createSiteMenuTemplate} from './components/site-menu.js';
 import {createInfoTemplate} from './components/info.js';
-import {createFiltersTemplate} from './components/filter.js';
+import {createFiltersTemplate} from './components/filters.js';
 import {createEditEventTemplate} from './components/event-edit.js';
 import {createDayTemplate} from './components/day.js';
 
