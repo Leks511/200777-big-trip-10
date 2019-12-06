@@ -3,9 +3,17 @@ const Cities = [
 
 ];
 
-const Types = [
-  {
-    name: ``,
-    icon: `bus`
+const Types = {
+  taxi: {
+    name: `taxi to`,
+    icon: `taxi`
   },
-];
+  flight: {
+    name: `flight to`,
+    icon: `flight`
+  },
+  drive: {
+    name: `drive to`,
+    icon: `drive`
+  }
+};
