@@ -4,7 +4,7 @@ import {createFiltersTemplate} from './components/filters.js';
 import {createEditEventTemplate} from './components/event-edit.js';
 import {createDayTemplate} from './components/day.js';
 
-const EVENT_COUNT = 3;
+const EVENT_COUNT = 4;
 
 const render = (element, template, place) => {
   element.insertAdjacentHTML(place, template);

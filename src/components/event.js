@@ -26,7 +26,7 @@ export const createEventTemplate = () => {
             <span class="event__offer-title">Order Uber</span>
             &plus;
             &euro;&nbsp;<span class="event__offer-price">20</span>
-          </li>
+            </li>
         </ul>
 
         <button class="event__rollup-btn" type="button">
