@@ -26,6 +26,6 @@ const eventListElement = document.querySelector(`.trip-days`);
 
 new Array(EVENT_COUNT).fill(``).forEach((it, index) => render(eventListElement, createDayTemplate(index), `beforeend`));
 
-import {event} from './mock/event.js';
+import { generateEvent} from './mock/event.js';
 
-console.log(event)
+console.log(generateEvent())
