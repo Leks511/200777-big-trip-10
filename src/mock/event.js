@@ -21,6 +21,8 @@ const Options = [
   `Choose seats + 9 €`
 ];
 
+const randomDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus.`;
+
 const getRandomIntegerNumber = (min, max) => {
   return min + Math.floor(max * Math.random());
 };
@@ -31,15 +33,30 @@ const getRandomArrayItem = (array) => {
   return array[randomIndex];
 };
 
+const generateExtraOptions = (options) => {
+  return options
+    .filter(() => Math.random() > 0.5)
+    .slice(0, 2);
+};
+
+const generateRandomPhotos = () => {
+  return new Array(Math.floor(Math.random() * 10))
+    .fill(``)
+    .map(() => `http://picsum.photos/300/150?r=${Math.random()}`);
+};
+
+const generateDescription = () => {
+  return randomDescription.split(`.`)
+    .filter(() => Math.random() > 0.5)
+    .slice(0, getRandomIntegerNumber(1, 3));
+}
+
 const event = {
-  description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus.`,
-  photo: `http://picsum.photos/300/150?r=${Math.random()}`,
+  description: generateDescription(),
+  photo: generateRandomPhotos(),
   type: getRandomArrayItem(Object.values(Types)),
   city: getRandomArrayItem(Cities),
-  options: new Array(getRandomIntegerNumber(0, 2))
-    .fill(``)
-    .forEach(getRandomArrayItem(Object.values(Options)))
-    .join(``)
+  options: generateExtraOptions(Options),
 };
 
 export {event};
