@@ -1,5 +1,9 @@
-import {tabs} from '../mock/site-menu.js';
 import {createTabTemplate} from './tab.js';
+
+const tabs = [
+  `Table`,
+  `Stats`
+];
 
 const generateTabsMorkup = (links) => {
   return links
