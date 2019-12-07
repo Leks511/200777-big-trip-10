@@ -16,7 +16,6 @@ export const createEventTemplate = () => {
   const { description, photo, type, city, options, eventPeriod, eventDuration, price } = generateEvent();
 
   const offers = createOfferMarkup(options);
-  //console.log(offers)
 
   return (`
     <li class="trip-events__item">
