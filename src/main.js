@@ -3,9 +3,8 @@ import {createInfoTemplate} from './components/info.js';
 import {createFiltersTemplate} from './components/filters.js';
 import {createEditEventTemplate} from './components/event-edit.js';
 import {createDayTemplate} from './components/day.js';
-import {generateEvents} from './mock/event.js';
 
-const EVENT_COUNT = 4;
+const DAY_COUNT = 4;
 
 const render = (element, template, place) => {
   element.insertAdjacentHTML(place, template);
@@ -23,6 +22,9 @@ render(filtersHeaderElement, createFiltersTemplate(), `afterend`);
 const tripEventsHeaderElement = document.querySelector(`.trip-events h2`);
 render(tripEventsHeaderElement, createEditEventTemplate(), `afterend`);
 
-const eventListElement = document.querySelector(`.trip-days`);
+// Находим список дней и рендерим туда DAY_COUNT - количество дней
+const dayListElement = document.querySelector(`.trip-days`);
 
-new Array(EVENT_COUNT).fill(``).forEach((it, index) => render(eventListElement, createDayTemplate(index), `beforeend`));
+new Array(DAY_COUNT)
+  .fill(``)
+  .forEach((it, index) => render(dayListElement, createDayTemplate(index), `beforeend`));

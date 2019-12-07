@@ -1,7 +1,10 @@
-import {createEventTemplate} from './event.js';
+// Получаем функцию генерации списка эвентов
+import {generateEvents} from '../mock/event';
 
 const EVENTS_COUNT = 4;
 
+// функция рендеринга шаблона дня
+// в ней вызываем функцию генерации шаблона эвентов
 export const createDayTemplate = (dayNumber) => {
   return (`
     <li class="trip-days__item  day">
@@ -11,10 +14,7 @@ export const createDayTemplate = (dayNumber) => {
       </div>
 
       <ul class="trip-events__list">
-        ${new Array(EVENTS_COUNT)
-          .fill(``)
-          .map(createEventTemplate)
-          .join(``)}
+        ${generateEvents(EVENTS_COUNT)}
       </ul>
     </li>
   `);

@@ -1,15 +1,18 @@
 /* eslint-disable no-unused-vars */
+import {getRandomIntegerNumber, getRandomArrayItem} from '../util.js';
+import {createEventTemplate} from '../components/event.js';
+
 const Cities = [`Geneva`, `Chaomix`, `Amsterdam`, `Moscow`, `Paris`, `Los Angeles`, `New York`, `London`, `Burkino Faso`];
 
 const Types = {
-  taxi: `taxi to`,
-  bus: `bus to`,
-  train: `train to`,
-  ship: `ship to`,
-  transport: `transport to`,
-  drive: `drive to`,
-  flight: `flight to`,
-  checkIn: `check into`,
+  taxi: `taxi`,
+  bus: `bus`,
+  train: `train`,
+  ship: `ship`,
+  transport: `transport`,
+  drive: `drive`,
+  flight: `flight`,
+  check: `check into`,
   sightseeing: `sightseeing`,
   restaurant: `restaurant`
 };
@@ -20,7 +23,7 @@ const Options = [
     price: `10 €`
   },
   {
-    name: `Switch to comfort class`,
+    name: `Switch to comfort`,
     price: `150 €`
   },
   {
@@ -34,16 +37,6 @@ const Options = [
 ];
 
 const randomDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus.`;
-
-const getRandomIntegerNumber = (min, max) => {
-  return min + Math.floor(max * Math.random());
-};
-
-const getRandomArrayItem = (array) => {
-  const randomIndex = getRandomIntegerNumber(0, array.length);
-
-  return array[randomIndex];
-};
 
 const generateExtraOptions = (options) => {
   return options
@@ -116,7 +109,8 @@ const generateEvent = () => {
 const generateEvents = (count) => {
   return new Array(count)
     .fill(``)
-    .map(generateEvent);
+    .map(createEventTemplate)
+    .join(`\n`);
 };
 
 export {generateEvent, generateEvents};
