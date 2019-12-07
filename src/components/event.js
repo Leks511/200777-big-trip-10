@@ -1,5 +1,3 @@
-import {event} from '../mock/event.js';
-
 export const createEventTemplate = () => {
   return (`
     <li class="trip-events__item">

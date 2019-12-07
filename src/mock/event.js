@@ -113,4 +113,10 @@ const generateEvent = () => {
   };
 };
 
-export {generateEvent};
+const generateEvents = (count) => {
+  return new Array(count)
+    .fill(``)
+    .map(generateEvent);
+};
+
+export {generateEvent, generateEvents};

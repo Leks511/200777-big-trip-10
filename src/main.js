@@ -3,6 +3,7 @@ import {createInfoTemplate} from './components/info.js';
 import {createFiltersTemplate} from './components/filters.js';
 import {createEditEventTemplate} from './components/event-edit.js';
 import {createDayTemplate} from './components/day.js';
+import {generateEvents} from './mock/event.js';
 
 const EVENT_COUNT = 4;
 
@@ -25,7 +26,3 @@ render(tripEventsHeaderElement, createEditEventTemplate(), `afterend`);
 const eventListElement = document.querySelector(`.trip-days`);
 
 new Array(EVENT_COUNT).fill(``).forEach((it, index) => render(eventListElement, createDayTemplate(index), `beforeend`));
-
-import { generateEvent} from './mock/event.js';
-
-console.log(generateEvent())
