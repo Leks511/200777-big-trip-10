@@ -1,4 +1,7 @@
+import {generateEvent} from '../mock/event.js';
+
 export const createEditEventTemplate = () => {
+
   return (`
     <form class="trip-events__item  event  event--edit" action="#" method="post">
       <header class="event__header">
