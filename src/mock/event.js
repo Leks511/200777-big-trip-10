@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import {getRandomIntegerNumber, getRandomArrayItem} from '../util.js';
-import {TYPES} from './types.js';
+import {TYPES} from '../types.js';
 
 const Cities = [`Geneva`, `Chaomix`, `Amsterdam`, `Moscow`, `Paris`, `Los Angeles`, `New York`, `London`, `Burkino Faso`];
 

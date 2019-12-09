@@ -1,9 +1,5 @@
 import {generateEvent} from '../mock/event.js';
-<<<<<<< HEAD
-
-export const createEditEventTemplate = () => {
-=======
-import {TYPES} from './types.js';
+import {TYPES} from '../types.js';
 
 const createEventTypes = () => {
   return TYPES.map((it) => {
@@ -18,7 +14,6 @@ const createEventTypes = () => {
 
 export const createEditEventTemplate = () => {
   const { description, photo, city, options, eventPeriod, eventDuration, price } = generateEvent();
->>>>>>> f96ea00c4d7d7557d172a17b18c6b78ca533ea08
 
   return (`
     <form class="trip-events__item  event  event--edit" action="#" method="post">
