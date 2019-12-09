@@ -1,5 +1,5 @@
 // Получаем функцию генерации списка эвентов
-import {generateEvents} from '../mock/event';
+import {createEventTemplate} from '../mock/event';
 
 const EVENTS_COUNT = 4;
 
@@ -14,7 +14,7 @@ export const createDayTemplate = (dayNumber) => {
       </div>
 
       <ul class="trip-events__list">
-        ${generateEvents(EVENTS_COUNT)}
+        ${createEventTemplate(EVENTS_COUNT)}
       </ul>
     </li>
   `);
