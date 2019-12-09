@@ -1,4 +1,4 @@
-import {createEventTemplate} from './event.js';
+import {createEventListTemplate} from './event.js';
 
 const EVENTS_COUNT = 4;
 
