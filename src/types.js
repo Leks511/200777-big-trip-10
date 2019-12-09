@@ -1,14 +1,17 @@
-const TYPES = {
-  taxi: `taxi`,
-  bus: `bus`,
-  train: `train`,
-  ship: `ship`,
-  transport: `transport`,
-  drive: `drive`,
-  flight: `flight`,
-  check: `check into`,
-  sightseeing: `sightseeing`,
-  restaurant: `restaurant`
-};
+const TRANSPORT_TYPES = [
+  `taxi`,
+  `bus`,
+  `train`,
+  `ship`,
+  `transport`,
+  `drive`,
+  `flight`,
+];
 
-export {TYPES};
+const STOP_TYPES = [
+  `check-in`,
+  `sightseeing`,
+  `restaurant`
+];
+
+export {TRANSPORT_TYPES, STOP_TYPES};

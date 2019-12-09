@@ -1,5 +1,3 @@
-import {generateEvents} from '../mock/event.js';
-
 const createOfferMarkup = (offers) => {
   return offers.map((it) => {
     return (`
@@ -12,10 +10,10 @@ const createOfferMarkup = (offers) => {
   }).join(`\n`);
 };
 
-const createEventMorkup = (data) => {
-  const { description, photo, type, city, options, eventPeriod, eventDuration, price } = data;
+export const createEventTemplate = ({ description, photo, type, city, options, eventPeriod, eventDuration, price }) => {
 
   const offers = createOfferMarkup(options);
+
 
   return (`
     <li class="trip-events__item">
@@ -23,13 +21,13 @@ const createEventMorkup = (data) => {
         <div class="event__type">
           <img class="event__type-icon" width="42" height="42" src="img/icons/${type}.png" alt="Event type icon">
         </div>
-        <h3 class="event__title">Taxi to airport</h3>
+        <h3 class="event__title">${description}</h3>
 
         <div class="event__schedule">
           <p class="event__time">
-            <time class="event__start-time" datetime="2019-03-18T10:30">${eventPeriod.startTime}</time>
+            <time class="event__start-time" datetime="${eventPeriod.targetDate}">${eventPeriod.startTime}</time>
             &mdash;
-            <time class="event__end-time" datetime="2019-03-18T11:00">${eventPeriod.endTime}</time>
+            <time class="event__end-time" datetime="${eventPeriod.targetDate}">${eventPeriod.endTime}</time>
           </p>
           <p class="event__duration">${eventDuration}</p>
         </div>
@@ -49,10 +47,4 @@ const createEventMorkup = (data) => {
       </div>
     </li>
   `);
-};
-
-export const createEventListTemplate = (count) => {
-  return generateEvents(count)
-    .map((it) => createEventMorkup(it))
-    .join(`\n`);
 };

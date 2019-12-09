@@ -1,23 +1,27 @@
 /* eslint-disable no-unused-vars */
 import {getRandomIntegerNumber, getRandomArrayItem} from '../util.js';
-import {TYPES} from '../types.js';
+import {TRANSPORT_TYPES, STOP_TYPES} from '../types.js';
 
 const Cities = [`Geneva`, `Chaomix`, `Amsterdam`, `Moscow`, `Paris`, `Los Angeles`, `New York`, `London`, `Burkino Faso`];
 
 const Options = [
   {
+    type: `luggage`,
     name: `Add luggage`,
     price: `10 €`
   },
   {
-    name: `Switch to comfort`,
+    type: `comfort`,
+    name: `Switch to comfort class`,
     price: `150 €`
   },
   {
+    type: `meal`,
     name: `Add meal`,
     price: `2 €`
   },
   {
+    type: `seats`,
     name: `Choose seats`,
     price: `9 €`
   }
@@ -56,14 +60,23 @@ const getRandomDate = () => {
     minutes: startEventTime.minutes + getRandomIntegerNumber(0, 59)
   };
 
-  return {startEventTime, endEventTime};
+  return {targetDate, startEventTime, endEventTime};
+};
+
+const getFormattedNumber = (num) => {
+  return `${num < 10 ? `0${num}` : num}`;
 };
 
 const getEventDuration = (start, end) => {
+  const days = end.days - start.days;
   const hours = end.hours - start.hours;
   const minutes = end.minutes - start.minutes;
 
-  return `${hours}H ${minutes}M`;
+  const daysM = days > 0 ? `${getFormattedNumber(days)}D` : ``;
+  const hoursM = hours > 0 ? `${getFormattedNumber(hours)}H` : ``;
+  const minutesM = minutes > 0 ? `${getFormattedNumber(minutes)}M` : ``;
+
+  return `${daysM}${daysM ? ` ` : ``}${hoursM}${hoursM ? ` ` : ``}${minutesM}`;
 };
 
 const getRandomEventPeriod = (start, end) => {
@@ -74,21 +87,21 @@ const getRandomEventPeriod = (start, end) => {
 };
 
 const generateEvent = () => {
-  const {startEventTime, endEventTime} = getRandomDate();
+  const {targetDate, startEventTime, endEventTime} = getRandomDate();
   const {startTime, endTime} = getRandomEventPeriod(startEventTime, endEventTime);
-  const eventDuration = getEventDuration(startEventTime, endEventTime);
 
   return {
     description: generateDescription(),
     photo: generateRandomPhotos(),
-    type: getRandomArrayItem(Object.values(TYPES)),
+    type: getRandomArrayItem([...TRANSPORT_TYPES, ...STOP_TYPES]),
     city: getRandomArrayItem(Cities),
     options: generateExtraOptions(Options),
     eventPeriod: {
+      targetDate,
       startTime,
       endTime
     },
-    eventDuration,
+    eventDuration: getEventDuration(startEventTime, endEventTime),
     price: getRandomIntegerNumber(0, 100)
   };
 };

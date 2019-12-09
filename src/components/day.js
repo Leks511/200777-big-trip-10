@@ -1,6 +1,9 @@
-import {createEventListTemplate} from './event.js';
+import {createEventTemplate} from './event.js';
+import {generateEvents} from '../mock/event.js';
 
 const EVENTS_COUNT = 4;
+const EVENTS = generateEvents(EVENTS_COUNT);
+const EVENTS_TEMPLATE = EVENTS.map((event) => createEventTemplate(event)).join(`\n`);
 
 export const createDayTemplate = (dayNumber) => {
   return (`
@@ -11,7 +14,7 @@ export const createDayTemplate = (dayNumber) => {
       </div>
 
       <ul class="trip-events__list">
-        ${createEventListTemplate(EVENTS_COUNT)}
+        ${EVENTS_TEMPLATE}
       </ul>
     </li>
   `);

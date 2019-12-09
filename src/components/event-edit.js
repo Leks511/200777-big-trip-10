@@ -1,15 +1,15 @@
 import {generateEvent} from '../mock/event.js';
-import {TYPES} from '../types.js';
+import {TRANSPORT_TYPES, STOP_TYPES} from '../types.js';
 
 const createEventTypes = () => {
-  return TYPES.map((it) => {
+  return [...TRANSPORT_TYPES, ...STOP_TYPES].map((it) => {
     return (`
       <div class="event__type-item">
         <input id="event-type-${it}-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="${it}">
         <label class="event__type-label  event__type-label--${it}" for="event-type-${it}-1">Taxi</label>
       </div>
     `);
-  })
+  });
 };
 
 export const createEditEventTemplate = () => {
