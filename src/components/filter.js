@@ -1,4 +1,4 @@
-const createFilter = (filter) => {
+export const createFilter = (filter) => {
   return (`
     <div class="trip-filters__filter">
       <input id="filter-${filter}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="${filter}">
@@ -6,5 +6,3 @@ const createFilter = (filter) => {
     </div>
   `);
 };
-
-export {createFilter};

@@ -1,4 +1,4 @@
-import {generateEvent} from '../mock/event.js';
+import {generateEvents} from '../mock/event.js';
 
 const createOfferMarkup = (offers) => {
   return offers.map((it) => {
@@ -12,8 +12,8 @@ const createOfferMarkup = (offers) => {
   }).join(`\n`);
 };
 
-const createEventMorkup = () => {
-  const { description, photo, type, city, options, eventPeriod, eventDuration, price } = generateEvent();
+const createEventMorkup = (data) => {
+  const { description, photo, type, city, options, eventPeriod, eventDuration, price } = data;
 
   const offers = createOfferMarkup(options);
 
@@ -52,5 +52,7 @@ const createEventMorkup = () => {
 };
 
 export const createEventListTemplate = (count) => {
-  return new Array(count).fill(``).map(() => createEventMorkup()).join(``);
+  return generateEvents(count)
+    .map((it) => createEventMorkup(it))
+    .join(`\n`);
 };

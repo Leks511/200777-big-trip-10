@@ -109,8 +109,7 @@ const generateEvent = () => {
 const generateEvents = (count) => {
   return new Array(count)
     .fill(``)
-    .map(createEventTemplate)
-    .join(`\n`);
+    .map(generateEvent);
 };
 
 export {generateEvent, generateEvents};
