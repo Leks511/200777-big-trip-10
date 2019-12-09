@@ -1,6 +1,24 @@
 import {generateEvent} from '../mock/event.js';
+<<<<<<< HEAD
 
 export const createEditEventTemplate = () => {
+=======
+import {TYPES} from './types.js';
+
+const createEventTypes = () => {
+  return TYPES.map((it) => {
+    return (`
+      <div class="event__type-item">
+        <input id="event-type-${it}-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="${it}">
+        <label class="event__type-label  event__type-label--${it}" for="event-type-${it}-1">Taxi</label>
+      </div>
+    `);
+  })
+};
+
+export const createEditEventTemplate = () => {
+  const { description, photo, city, options, eventPeriod, eventDuration, price } = generateEvent();
+>>>>>>> f96ea00c4d7d7557d172a17b18c6b78ca533ea08
 
   return (`
     <form class="trip-events__item  event  event--edit" action="#" method="post">
@@ -15,6 +33,8 @@ export const createEditEventTemplate = () => {
           <div class="event__type-list">
             <fieldset class="event__type-group">
               <legend class="visually-hidden">Transfer</legend>
+
+              ${createEventTypes()}
 
               <div class="event__type-item">
                 <input id="event-type-taxi-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="taxi">

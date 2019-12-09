@@ -1,21 +1,8 @@
 /* eslint-disable no-unused-vars */
 import {getRandomIntegerNumber, getRandomArrayItem} from '../util.js';
-import {createEventTemplate} from '../components/event.js';
+import {TYPES} from './types.js';
 
 const Cities = [`Geneva`, `Chaomix`, `Amsterdam`, `Moscow`, `Paris`, `Los Angeles`, `New York`, `London`, `Burkino Faso`];
-
-const Types = {
-  taxi: `taxi`,
-  bus: `bus`,
-  train: `train`,
-  ship: `ship`,
-  transport: `transport`,
-  drive: `drive`,
-  flight: `flight`,
-  check: `check into`,
-  sightseeing: `sightseeing`,
-  restaurant: `restaurant`
-};
 
 const Options = [
   {
@@ -94,7 +81,7 @@ const generateEvent = () => {
   return {
     description: generateDescription(),
     photo: generateRandomPhotos(),
-    type: getRandomArrayItem(Object.values(Types)),
+    type: getRandomArrayItem(Object.values(TYPES)),
     city: getRandomArrayItem(Cities),
     options: generateExtraOptions(Options),
     eventPeriod: {
@@ -109,8 +96,7 @@ const generateEvent = () => {
 const generateEvents = (count) => {
   return new Array(count)
     .fill(``)
-    .map(createEventTemplate)
-    .join(`\n`);
+    .map(generateEvent);
 };
 
 export {generateEvent, generateEvents};
