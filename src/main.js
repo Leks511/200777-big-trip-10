@@ -4,7 +4,7 @@ import {createFiltersTemplate} from './components/filters.js';
 import {createEditEventTemplate} from './components/event-edit.js';
 import {createDayTemplate} from './components/day.js';
 
-const DAY_COUNT = 4;
+const DAY_COUNT = 3;
 
 const render = (element, template, place) => {
   element.insertAdjacentHTML(place, template);
@@ -27,4 +27,4 @@ const dayListElement = document.querySelector(`.trip-days`);
 
 new Array(DAY_COUNT)
   .fill(``)
-  .forEach((it, index) => render(dayListElement, createDayTemplate(index), `beforeend`));
+  .forEach(() => render(dayListElement, createDayTemplate(), `beforeend`));
